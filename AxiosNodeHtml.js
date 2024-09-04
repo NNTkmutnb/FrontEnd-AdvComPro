@@ -23,7 +23,7 @@ app.get("/", async (req, res) => {
 
 app.get("/book/:id", async (req, res) => {
     try {
-        const response = await axios.get(base_url + '/books' + req.params.id);
+        const response = await axios.get(base_url + '/books/' + req.params.id);
         res.render("book", { book: response.data });
     } catch (err) {
         console.error(err);
@@ -70,7 +70,7 @@ app.post("/update/:id", async (req, res) => {
 
 app.get("/delete/:id", async (req, res) => {
     try {
-        await axios.delete(base_url + '/books' + req.params.id);
+        await axios.delete(base_url + '/books/' + req.params.id);
             res.redirect("/");
     } catch (err) {
         console.error(err);
